@@ -24021,6 +24021,10 @@ in
 
   crawl = callPackage ../games/crawl { };
 
+  inherit (import ../games/crossfire pkgs)
+    crossfire-server-stable crossfire-arch-stable crossfire-maps-stable
+    crossfire-server-latest crossfire-arch-latest crossfire-maps-latest;
+
   crrcsim = callPackage ../games/crrcsim {};
 
   curseofwar = callPackage ../games/curseofwar { SDL = null; };
