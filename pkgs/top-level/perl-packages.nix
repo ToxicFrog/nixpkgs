@@ -332,6 +332,20 @@ let
     };
   };
 
+  AnyEventAIO = buildPerlPackage rec {
+    pname = "AnyEvent-AIO";
+    version = "1.1";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/M/ML/MLEHMANN/${pname}-${version}.tar.gz";
+      sha256 = "6b105b8c641561631f533ec3423e8067a3d7d58043bf85f0f5e09d706905706b";
+    };
+    buildInputs = [ CanaryStability ];
+    propagatedBuildInputs = [ AnyEvent IOAIO ];
+    meta = {
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+
   AnyEventCacheDNS = buildPerlModule {
     pname = "AnyEvent-CacheDNS";
     version = "0.08";
