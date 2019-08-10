@@ -9691,6 +9691,20 @@ let
     };
   };
 
+  IOAIO = buildPerlPackage rec {
+    pname = "IO-AIO";
+    version = "4.72";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/M/ML/MLEHMANN/${pname}-${version}.tar.gz";
+      sha256 = "6e5b5e82c95f36d4e26d0745e1bddef0f0beb313b7dae296a668a9fb145e6e9f";
+    };
+    buildInputs = [ CanaryStability ];
+    propagatedBuildInputs = [ commonsense ];
+    meta = {
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+
   IOAll = buildPerlPackage {
     pname = "IO-All";
     version = "0.87";
